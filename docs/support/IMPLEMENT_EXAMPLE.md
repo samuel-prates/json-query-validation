@@ -17,7 +17,7 @@ const { andValidation,
 
 ---
 
-**1.0. run query**
+**1.1 run query**
 ```js
 ruleEngine.registerRules ({
     // Priority for the execution
@@ -35,7 +35,7 @@ ruleEngine.registerRules ({
 ```
 ---
 
-**5.2. A more complex example**
+**1.2 A more complex example**
 ```js
 ruleEngine.registerRules ({
     // Priority for the execution

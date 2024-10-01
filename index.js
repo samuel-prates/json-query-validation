@@ -1,17 +1,9 @@
 const validations = require('./lib/validations');
-const ValidationService = require('./lib/services/ValidationService')
+const ValidationService = require('./lib/services/ValidationService');
+const QueryValidationFactory = require('./lib/factories/QueryValidationFactory');
 
 module.exports = {
   validations,
-  validationService: new ValidationService(
-    validations.andValidation,
-    validations.differentValidation,
-    validations.equalValidation,
-    validations.exactValidation,
-    validations.greaterThanValidation,
-    validations.inValidation,
-    validations.lowerThanValidation,
-    validations.orValidation
-  ),
+  QueryValidationFactory,
   ValidationService
 }
