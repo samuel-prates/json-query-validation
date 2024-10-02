@@ -5,27 +5,30 @@
 **1. Import Library**
 
 ```javascript
-const { andValidation,
-    differentValidation,
-    equalValidation,
-    exactValidation,
-    greaterThanValidation,
-    inValidation,
-    lowerThanValidation,
-    orValidation }  = require('query-validation');
+const { QueryValidationFactory } = require('query-validation');
+const validationService = QueryValidationFactory.create();
 ```
 
 ---
 
 **1.1 run query**
 ```js
-ruleEngine.registerRules ({
-    // Priority for the execution
-    "priority": 1,
-    // The query to search for the right listeners to execute
-    "query": {
-        "id": {
-            "$equal": "valuex"
+const query = { "$equal": "value" };
+const searchFrom = "value";
+
+validationService.validate(searchFrom, query); // return true
+
+```
+---
+
+**1.2 A more complex example**
+```js
+const query = {
+    "$or": [{
+        "model": {
+            "common": {
+                "$equal": "value"
+            }
         }
     },
     // name of the listener registered on step 3 ou 4
@@ -82,40 +85,22 @@ ruleEngine.registerRules ({
                     "$lowerThan": 8
                 }
             }
-        ]
-    },
-    // name of the listener registered on step 3 ou 4
-    "event": "firstSync"
-});
-
-```
-
----
-
-**6. You SHOULD register a postback function to do something or deal with exceptions**
-```js
-ruleEngine.postback((event) => {
-    const { fact, error, eventStoped } = event;
-    if(error){
-        //do something
-    } else {
-        // do something
+        }
+    }]
+};
+const searchFrom = {
+    model: {
+        common: "value2"
     }
-});
-```
----
+};
 
-**7. run your object**
-```js
-ruleEngine.execute({
-    "id": "valuex",
-    "processor": "value2",
-    "country": "value3",
-    "situation": {
-        "reason_code": "value4"
-    },
-    "amount": 5,
-    "fee": 6
-});
+const searchFrom2 = {
+    model: {
+        common: "value3"
+    }
+};
+
+validationService.validate(searchFrom, query); // return true
+validationService.validate(searchFrom2, query); // return false
+
 ```
----
