@@ -11,7 +11,7 @@ const validationService = QueryValidationFactory.create();
 
 ---
 
-**1.1 run query**
+**1.1 Run query**
 ```js
 const query = { "$equal": "value" };
 const searchFrom = "value";
@@ -31,59 +31,10 @@ const query = {
             }
         }
     },
-    // name of the listener registered on step 3 ou 4
-    "event": "firstSync"
-});
-
-```
----
-
-**1.2 A more complex example**
-```js
-ruleEngine.registerRules ({
-    // Priority for the execution
-    "priority": 1,
-    // The query to search for the right listeners to execute
-    "query": {
-        "$and": [
-            {
-                "id": {
-                    "$equal": "value1"
-                }
-            },
-            {
-                "processor": {
-                    "$different": "value2"
-                }
-            },
-            {
-                "$or": [
-                    {
-                        "country": {
-                            "$exact": "value3"
-                        }
-                    },
-                    {
-                        "situation": {
-                            "reason_code": {
-                                "$in": [
-                                    4,
-                                    5
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                "amount": {
-                    "$greaterThan": 6
-                }
-            },
-            {
-                "fee": {
-                    "$lowerThan": 8
-                }
+    {
+        "model": {
+            "common": {
+                "$equal": "value2"
             }
         }
     }]
