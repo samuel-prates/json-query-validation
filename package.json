@@ -1,6 +1,6 @@
 {
   "name": "query-validation",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Easy way to validate with a json",
   "main": "index.js",
   "directories": {
