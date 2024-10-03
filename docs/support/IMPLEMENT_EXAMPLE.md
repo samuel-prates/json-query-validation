@@ -5,7 +5,7 @@
 **1. Import Library**
 
 ```javascript
-const { QueryValidationFactory } = require('query-validation');
+const { QueryValidationFactory } = require('json-query-validation');
 const validationService = QueryValidationFactory.create();
 ```
 

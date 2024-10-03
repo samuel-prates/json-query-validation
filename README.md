@@ -1,4 +1,4 @@
-# query-validation
+# json-query-validation
 Easy way to validate with a json
 
 ### How to use
@@ -6,7 +6,7 @@ Easy way to validate with a json
 **1. Import Library**
 
 ```javascript
-const { QueryValidationFactory } = require('query-validation');
+const { QueryValidationFactory } = require('json-query-validation');
 const validationService = QueryValidationFactory.create();
 ```
 
